@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matriz de Sensores de Clima</title>
+    <title>Sensores de Clima</title>
 </head>
 <body>
-    <h1>Dados da Matriz de Sensores de Clima</h1>
+    <h1>Matriz de Sensores de Clima</h1>
 
     <script>
-        // Objeto que representa a coleção de sensores de clima e suas leituras
+       
         const clima = {
             sensores: [
                 {
-                    nome: "Sensor de Temperatura Interno",
-                    localizacao: "Sala de Estar",
+                    nome: "Sensor de Temperatura",
+                    localizacao: "Casa",
                     leituras: [
                         { data_hora: "2025-08-11 09:00", tipo: "Temperatura", valor: 23.5, unidade: "°C" },
                         { data_hora: "2025-08-11 10:00", tipo: "Temperatura", valor: 24.1, unidade: "°C" },
@@ -22,22 +22,14 @@
                     ]
                 },
                 {
-                    nome: "Sensor de Umidade Externa",
-                    localizacao: "Jardim",
+                    nome: "Sensor de Umidade",
+                    localizacao: "Quintal",
                     leituras: [
                         { data_hora: "2025-08-11 09:00", tipo: "Umidade Relativa", valor: 70, unidade: "%" },
                         { data_hora: "2025-08-11 10:00", tipo: "Umidade Relativa", valor: 68, unidade: "%" },
                         { data_hora: "2025-08-11 11:00", tipo: "Umidade Relativa", valor: 65, unidade: "%" }
                     ]
-                },
-                {
-                    nome: "Sensor de Ponto de Orvalho",
-                    localizacao: "Laboratório",
-                    leituras: [
-                        { data_hora: "2025-08-11 09:00", tipo: "Ponto de Orvalho", valor: 18.2, unidade: "°C" },
-                        { data_hora: "2025-08-11 10:00", tipo: "Ponto de Orvalho", valor: 18.5, unidade: "°C" },
-                        { data_hora: "2025-08-11 11:00", tipo: "Ponto de Orvalho", valor: 19.0, unidade: "°C" }
-                    ]
+               
                 },
                  {
                     nome: "Sensor de Pressão Atmosférica",
@@ -51,12 +43,12 @@
             ]
         };
 
-        // Função para exibir a matriz de sensores em uma tabela HTML
+ 
         function exibeMatrizClima() {
-            // Usa 'document.write' para criar a tabela diretamente no corpo do documento
-            document.write("<table border='1'>"); // Adiciona border='1' para visibilidade das células
+            
+            document.write("<table border='1'>"); 
 
-            // Cabeçalho da tabela
+           
             document.write("<tr>");
             document.write("<th>Nome do Sensor</th>");
             document.write("<th>Localização</th>");
@@ -65,7 +57,7 @@
             document.write("<th>Valor</th>");
             document.write("</tr>");
 
-            // Preenche a tabela com os dados dos sensores
+            
             for (let i = 0; i < clima.sensores.length; i++) {
                 const sensor = clima.sensores[i];
 
@@ -74,14 +66,13 @@
 
                     document.write("<tr>");
 
-                    // Adiciona as células com rowspan para as informações do sensor (nome, localização)
-                    // para que apareçam apenas uma vez por sensor.
+                    
                     if (j === 0) {
                         document.write(`<td rowspan='${sensor.leituras.length}'>${sensor.nome}</td>`);
                         document.write(`<td rowspan='${sensor.leituras.length}'>${sensor.localizacao}</td>`);
                     }
 
-                    // Adiciona as células com as informações de cada leitura
+                   
                     document.write(`<td>${leitura.data_hora}</td>`);
                     document.write(`<td>${leitura.tipo}</td>`);
                     document.write(`<td>${leitura.valor} ${leitura.unidade}</td>`); // Exibe valor e unidade
@@ -92,7 +83,7 @@
             document.write("</table>");
         }
 
-        // Chama a função para exibir a matriz quando a página é carregada
+        
         exibeMatrizClima();
     </script>
 </body>
